@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff4e50, #f9d423);
+            background-size: 200% 200%;
+            animation: flowing-gradient 10s ease infinite;
+        }
+
+        @keyframes flowing-gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: auto;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 36px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        form {
+            width: 800px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+
+        button {
+            grid-column: span 2;
+            width: 100%;
+            padding: 10px;
+            background: #66cccc;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Churn Predictor</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="account_length">Account Length:</label>
+                <input type="number" id="account_length" name="account_length" required>
+            </div>
+
+            <div class="form-group">
+                <label for="international_plan">International Plan:</label>
+                <select id="international_plan" name="international_plan" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="voice_mail_plan">Voice Mail Plan:</label>
+                <select id="voice_mail_plan" name="voice_mail_plan" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="number_vmail_messages">Number of Voicemail Messages:</label>
+                <input type="number" id="number_vmail_messages" name="number_vmail_messages" required>
+            </div>
+
+            <div class="form-group">
+                <label for="total_day_minutes">Total Day Minutes:</label>
+                <input type="number" id="total_day_minutes" name="total_day_minutes" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="total_day_charge">Total Day Charge:</label>
+                <input type="number" id="total_day_charge" name="total_day_charge" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="total_eve_minutes">Total Evening Minutes:</label>
+                <input type="number" id="total_eve_minutes" name="total_eve_minutes" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="total_eve_charge">Total Evening Charge:</label>
+                <input type="number" id="total_eve_charge" name="total_eve_charge" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="total_night_minutes">Total Night Minutes:</label>
+                <input type="number" id="total_night_minutes" name="total_night_minutes" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="total_intl_minutes">Total International Minutes:</label>
+                <input type="number" id="total_intl_minutes" name="total_intl_minutes" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="total_intl_calls">Total International Calls:</label>
+                <input type="number" id="total_intl_calls" name="total_intl_calls" required>
+            </div>
+
+            <div class="form-group">
+                <label for="total_intl_charge">Total International Charge:</label>
+                <input type="number" id="total_intl_charge" name="total_intl_charge" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="customer_service_calls">Customer Service Calls:</label>
+                <input type="number" id="customer_service_calls" name="customer_service_calls" required>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

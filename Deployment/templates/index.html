@@ -1,83 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Predictor</title>
     <style>
+        /* Apply a modern telecom-themed background */
         body {
-            background: linear-gradient(to right, #ff4e50, #f9d423);
-            background-size: 200% 200%;
-            animation: flowing-gradient 10s ease infinite;
-        }
-
-        @keyframes flowing-gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            background: linear-gradient(135deg, #1e3c72, #2a5298); /* Replace with your theme colors */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
         }
 
         .container {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
-            height: auto;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
         }
 
         h1 {
-            color: #fff;
-            font-size: 36px;
-            text-align: center;
-            margin-top: 30px;
+            font-size: 42px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
         }
 
         form {
-            width: 800px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 900px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            gap: 30px; /* Increased gap for better spacing */
         }
 
         label {
-            display: block;
-            margin-bottom: 10px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
         }
 
-        input[type="number"],
-        select {
+        input[type="number"], select {
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
             width: 100%;
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-sizing: border-box;
+        }
+
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #ff7e5f;
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
         button {
             grid-column: span 2;
-            width: 100%;
-            padding: 10px;
-            background: #66cccc;
-            color: #fff;
-            font-size: 16px;
+            padding: 15px;
+            font-size: 18px;
             font-weight: bold;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #feb47b, #ff7e5f);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Responsive design for smaller devices */
+        @media (max-width: 768px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            button {
+                grid-column: span 1;
+            }
         }
     </style>
 </head>
